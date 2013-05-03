@@ -18,12 +18,12 @@ function grab_first_post(thread) {
 	// var post = page.querySelector(".post-body")
 	// console.log(post)
 	$('#tftv-preview-container-div').load("http://teamfortress.tv" + thread.attr('href'), function() {
-		$('#tftv-preview-hover-div').text( $('#tftv-preview-container-div').find('.post-body').first().text() )})
+		$('#tftv-preview-hover-div').html( $('#tftv-preview-container-div').find('.post').first().html() )})
 	$('#tftv-preview-hover-div').css({ display: "block" })
 }
 
 function generate_hover_div() {
-	$('<div id="tftv-preview-hover-div" style="display: none; color: #000; background: #FFF; font-size:10px; border:1px solid #000; padding:4px; position:absolute; z-index: 100; max-width:600px;">Loading...</div>').appendTo('body')
+	$('<div id="tftv-preview-hover-div" class="post-body" style="display: none;background:#FFF;border:1px solid #000;position:absolute; z-index: 100; max-width:600px;">Loading...</div>').appendTo('body')
 	$(document).bind('mousemove', function(e){
 	    $('#tftv-preview-hover-div').css({ left: e.pageX, top: e.pageY + 20 })
 	})
